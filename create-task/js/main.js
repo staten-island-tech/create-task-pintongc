@@ -1,6 +1,6 @@
 import { menu } from "./nutritionfacts";
 
-const calperpro = menu.forEach((item) => console.log(item.protein / item.calories))
+const calperpro = menu.forEach((item) => console.log(item.calories / item.protein))
 console.log(calperpro);
 
 const calories = 1094
