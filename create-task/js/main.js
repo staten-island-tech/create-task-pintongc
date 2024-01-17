@@ -14,3 +14,16 @@ function math(calories, protein){
 
 math(calories, protein);
 
+function caloverprice(calories, price){
+    let b = calories / price; 
+    console.log(b)
+}
+caloverprice(1400, 5.99)
+
+function asdasd(){
+    if (document.querySelector(".option")) {
+        
+    } else {
+        
+    }
+}
