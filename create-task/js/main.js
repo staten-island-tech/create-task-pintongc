@@ -43,3 +43,4 @@ function proovercals(protein, calories){
     document.querySelector("h1").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
 }
 proovercals();
+
