@@ -1,3 +1,7 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .card {
     background-color: whitesmoke;
     border: 0.3rem solid black;
@@ -16,8 +20,33 @@
     overflow: hidden;
   }
 
-  img {
-    scale: 0.5;
-    margin: 0;
-    padding: 0px;
-  }
+img {
+   scale: 0.5;
+   margin: 0;
+   padding: 0px;
+}
+
+.header-container {
+  margin-bottom: 3vh;
+  text-align: center;
+  border-bottom: 5px solid black;
+  padding: 2.5rem 10rem;
+  background-color: #Ffd700;
+  position: relative;
+}
+  
+.animation {
+  font-size: 3.3rem;
+  text-shadow: 0.25rem 0.15rem 0.1rem lightslategray;
+  animation: animation, bounce;
+  animation-duration: 3s, 1.8s;
+  animation-delay: 150ms, 3s;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: ease, ease-in-out;
+}
+
+.selection {
+  margin: auto;
+  font-size: medium;
+  justify-content: center;
+}

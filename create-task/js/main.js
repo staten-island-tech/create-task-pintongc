@@ -18,7 +18,7 @@ function caloverprice(calories, price){
     let b = calories / price; 
     let c = Math.round(b * 100) / 100
     console.log(c)
-    document.querySelector("h1").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
+    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
 }
 caloverprice(1400, 5.99)
 
@@ -32,7 +32,7 @@ function prooverprice(protein, price){
     let b = protein / price; 
     let c = Math.round(b * 100) / 100
     console.log(c)
-    document.querySelector("h1").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
+    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
 }
 prooverprice();
 
@@ -40,7 +40,13 @@ function proovercals(protein, calories){
     let b = protein / calories; 
     let c = Math.round(b * 100) / 100
     console.log(c)
-    document.querySelector("h1").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
+    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
 }
 proovercals();
+
+menu.forEach((item) => {
+    proovercals(item.protein, item.calories)
+    console.log(c)
+    document.querySelector("h2").insertAdjacentElement("beforeend", `<p>${c}</p>`)
+});
 
