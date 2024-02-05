@@ -1,29 +1,33 @@
 body {
   font-family: 'Ubuntu', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0px;
+  width: 100vw;
+  margin: 0px;
 }
 
 .card {
-    background-color: whitesmoke;
-    border: 0.3rem solid black;
-    border-radius: 30px;
-    width: 28vw;
-    height: 30vh;
-    padding: 0%;
-    margin: 1rem;
-    align-items: center;
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    position: relative;
-    box-shadow: 0.5rem 0.3rem 0.2rem rgb(21, 22, 22);
-    overflow: hidden;
-  }
-
-img {
-   scale: 0.5;
-   margin: 0;
-   padding: 0px;
+  background-color: whitesmoke;
+  border: 0.3rem solid black;
+  border-radius: 30px;
+  width: 23vw;
+  min-height: 25vh;
+  margin: 1rem;
+  align-items: center;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0.5rem 0.3rem 0.2rem rgb(21, 22, 22);
+  overflow: hidden;
 }
 
 .header-container {
@@ -35,18 +39,44 @@ img {
   position: relative;
 }
   
-.animation {
-  font-size: 3.3rem;
-  text-shadow: 0.25rem 0.15rem 0.1rem lightslategray;
-  animation: animation, bounce;
-  animation-duration: 3s, 1.8s;
-  animation-delay: 150ms, 3s;
-  animation-iteration-count: 1, infinite;
-  animation-timing-function: ease, ease-in-out;
-}
-
 .selection {
   margin: auto;
   font-size: medium;
   justify-content: center;
+}
+
+.food-btn{
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttons {
+  position: absolute;
+  top: 12vh;
+  left: 0.5vw;
+}
+
+.menu {
+  position: absolute;
+  left: 0.8vw;
+  top: 8.5vh;
+}
+
+img{
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 1px;
+  scale: 0.8;
+}
+
+.selection {
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
 }

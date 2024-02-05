@@ -1,52 +1,101 @@
+import { DOMSelectors } from "./doms";
 import { menu } from "./nutritionfacts";
 
-const calperpro = menu.forEach((item) => console.log(item.calories / item.protein))
-console.log(calperpro);
+const filterTypes = ["breakfast", "burgers", "chicken", "sides", "drinks"];
 
-const calories = 1094
-const protein = 56
+const filteredMenu = filterTypes.map((type) => [
+  type,
+  menu.filter((menu) => menu.type === type),
+]);
 
-function math(calories, protein){
-    const a = calories / protein;
-    console.log(a);
-    return[a];
+console.log(filteredMenu);
+
+const createCard = function (menu) {
+  DOMSelectors.gallery.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="card">
+        <div class="card-title">${menu.item}</div>
+        <img src="${menu.image}" alt="${menu.item}">
+        <div class="card-desc"><h1></h1></div>
+      </div>`
+  );
 };
 
-math(calories, protein);
+const createAllCards = () => {
+  menu.forEach((menu) => createCard(menu));
+};
 
-function caloverprice(calories, price){
-    let b = calories / price; 
-    let c = Math.round(b * 100) / 100
-    console.log(c)
-    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
+createAllCards();
+
+function deleteAllCards() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => card.remove());
 }
-caloverprice(1400, 5.99)
 
-function asdasd(){
-    if ((document.querySelector(".option") = "calories")) {
-        caloverprice()
+let buttons = document.querySelectorAll(".food-btn");
+
+buttons.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    const filter = btn.textContent.toLowerCase();
+    deleteAllCards();
+    if (filter === "all") {
+      createAllCards();
+    } else {
+      menu
+        .filter((menu) => menu.type.includes(filter))
+        .forEach((menu) => createCard(menu));
     }
-};
+  })
+);
 
-function prooverprice(protein, price){
-    let b = protein / price; 
-    let c = Math.round(b * 100) / 100
-    console.log(c)
-    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
-}
-prooverprice();
-
-function proovercals(protein, calories){
-    let b = protein / calories; 
-    let c = Math.round(b * 100) / 100
-    console.log(c)
-    document.querySelector("h2").insertAdjacentHTML("beforeend", `<p>${c}</p>`)
-}
-proovercals();
-
-menu.forEach((item) => {
-    proovercals(item.protein, item.calories)
-    console.log(c)
-    document.querySelector("h2").insertAdjacentElement("beforeend", `<p>${c}</p>`)
+DOMSelectors.selection.addEventListener("change", function () {
+  const a = getProteinDividedbyPrice(menu);
+  const b = getCaloriesDividedbyPrice(menu);
+  console.log(a, b);
 });
 
+function getProteinDividedbyPrice(menu) {
+  let measure1 = document.getElementById("measure1").value.toLowerCase();
+  console.log(measure1);
+
+  if (measure1 === "protein") {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      const itemName = card.querySelector(".card-title").textContent;
+      const menuItem = menu.find((item) => item.item === itemName);
+
+      if (menuItem) {
+        let a = menuItem.protein / menuItem.price;
+        const b = Math.round(a * 100) / 100;
+        const prooverprice = card.querySelector(".card-desc");
+        if (prooverprice) {
+          prooverprice.textContent = `Protein per Dollar: ${b}`;
+        }
+      }
+    });
+  }
+};
+
+function getCaloriesDividedbyPrice(menu) {
+  let measure1 = document.getElementById("measure1").value.toLowerCase();
+  console.log(measure1);
+
+  if (measure1 === "calories") {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      const itemName = card.querySelector(".card-title").textContent;
+      const menuItem = menu.find((item) => item.item === itemName);
+
+      if (menuItem) {
+        let a = menuItem.calories / menuItem.price;
+        const b = Math.round(a * 100) / 100;
+        const caloriesOverPrice = card.querySelector(".card-desc");
+        if (caloriesOverPrice) {
+          caloriesOverPrice.textContent = `Calories per Dollar: ${b}`;
+        }
+      }
+    })
+  }
+};

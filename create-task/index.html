@@ -15,33 +15,25 @@
 <div>
   <header class="header-container">
     <h1 class="animation">McDonald's Calorie Calculator</h1>
-  </header>
-
-  <div class="flexbox-gallery">
-    <div class="card">
-      <div class="card-title">McChicken</div>
-      <div class="card-img"><img src="" alt=""></div>
-      <div class="card-desc">Cal / $:
-        <br> Pro / $:
-        <br> Cal / Pro:
+    <p class="menu">Menu Options:</p>
+    <div class="buttons">
+      <button class="food-btn">Breakfast</button>
+      <button class="food-btn">Burgers</button>
+      <button class="food-btn">Chicken</button>
+      <button class="food-btn">Sides</button>
       </div>
-      <h1></h1>
-    </div>
+  </header>
+  <div class="selection">
+    <label for="measure1">Choose a measurement : </label>
+    <select name="measure1" id="measure1">
+    <option value="protein">Protein</option>
+    <option value="calories">Calories</option>
+    </select>
+    divided by Price in Dollars.
+ </div>
+  <div class="gallery">
   </div>
-<div class="selection">
-  <label for="">Choose a measurement:</label>
-  <select name="" id="">
-    <option value="">Grams of Protein</option>
-    <option value="">Price in Dollars</option>
-    <option value="">Calories</option>
-  </select>
-  divided by
-  <select name="" id="">
-    <option value="">Grams of Protein</option>
-    <option value="">Price in Dollars</option>
-    <option value="">Calories</option>
-  </select>
-</div>
+
   <script type="module" src="/js/main.js"></script>
 </body>
 
