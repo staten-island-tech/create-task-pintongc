@@ -57,15 +57,12 @@ DOMSelectors.selection.addEventListener("change", function () {
 function getProteinDividedbyPrice(menu) {
   let measure1 = document.getElementById("measure1").value.toLowerCase();
   console.log(measure1);
-
   if (measure1 === "protein") {
     const cards = document.querySelectorAll(".card");
-
     cards.forEach((card) => {
       const itemName = card.querySelector(".card-title").textContent;
       const menuItem = menu.find((item) => item.item === itemName);
-
-      if (menuItem) {
+        if (menuItem) {
         let a = menuItem.protein / menuItem.price;
         const b = Math.round(a * 100) / 100;
         const prooverprice = card.querySelector(".card-desc");
@@ -73,22 +70,19 @@ function getProteinDividedbyPrice(menu) {
           prooverprice.textContent = `Protein per Dollar: ${b}`;
         }
       }
-    });
+    })
   }
 };
 
 function getCaloriesDividedbyPrice(menu) {
   let measure1 = document.getElementById("measure1").value.toLowerCase();
   console.log(measure1);
-
-  if (measure1 === "calories") {
+   if (measure1 === "calories") {
     const cards = document.querySelectorAll(".card");
-
     cards.forEach((card) => {
       const itemName = card.querySelector(".card-title").textContent;
       const menuItem = menu.find((item) => item.item === itemName);
-
-      if (menuItem) {
+        if (menuItem) {
         let a = menuItem.calories / menuItem.price;
         const b = Math.round(a * 100) / 100;
         const caloriesOverPrice = card.querySelector(".card-desc");
